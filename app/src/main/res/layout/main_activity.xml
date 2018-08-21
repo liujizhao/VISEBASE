@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/mMainPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom">
+
+            <android.support.design.widget.BottomNavigationView
+                android:id="@+id/mBottomNavigationView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:itemBackground="@android:color/holo_blue_light"
+                app:itemTextColor="#ff0000"
+                app:menu="@menu/nav_menu" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:contentDescription="@string/image_description"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:src="@mipmap/ic_launcher" />
+
+    </FrameLayout>
+
+</LinearLayout>

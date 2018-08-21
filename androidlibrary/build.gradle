@@ -1,0 +1,52 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
+    api "com.android.support:design:$rootProject.ext.supportLibraryVersion"
+    api "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintVersion"
+    testImplementation "junit:junit:$rootProject.ext.junitVersion"
+    androidTestImplementation "com.android.support.test:runner:$rootProject.ext.runnerVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoVersion"
+    // retrofit2 + okhttp3
+    api "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofit_version"
+    api "com.squareup.retrofit2:adapter-rxjava2:$rootProject.ext.retrofit_version"
+    api "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofit_version"
+    api "com.squareup.okhttp3:okhttp:$rootProject.ext.okhttp_version"
+    api "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttp_version"
+    // rxjava
+    api "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxjava_version"
+
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    api 'com.vise.xiaoyaoyou:viselog:1.1.2'
+    api 'com.vise.xiaoyaoyou:viseutils:1.1.0'
+
+    api 'com.github.bumptech.glide:glide:3.7.0' //图片框架，如果需要使用，编译依赖即可
+}
+repositories {
+    mavenCentral()
+}
